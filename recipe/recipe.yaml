@@ -1,6 +1,6 @@
 context:
   name: rhealpixdggs
-  version: 0.5.11
+  version: "0.5.12"
   python_min: 3.12
 
 package:
@@ -9,12 +9,12 @@ package:
 
 source:
   url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/${{ name }}-${{ version }}.tar.gz
-  sha256: f332ee4e80cd6f78734bc9879b07b517c91121a88ab8f68ccd03fde31049fc62
+  sha256: 2d2b53b78192d585e13e580274dc8fab19516b8bcf1dd1892b16f0b4a4c338fd
 
 build:
   noarch: python
-  script: 
-   - python -m pip install . --no-deps -vv
+  script:
+    - python -m pip install . --no-deps -vv
   number: 0
 
 requirements:
@@ -41,7 +41,7 @@ tests:
       - pytest -v --doctest-glob=introduction.rst docs/source/
       - pytest -v --doctest-modules rhealpixdggs -k "not rhealpixdggs.projection_wrapper.Projection"
     requirements:
-      run: 
+      run:
         - pytest
         - python ==${{ python_min }}
     files:
