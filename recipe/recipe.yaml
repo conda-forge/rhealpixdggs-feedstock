@@ -1,6 +1,6 @@
 context:
   name: rhealpixdggs
-  version: 0.5.11
+  version: 0.5.13
   python_min: 3.12
 
 package:
@@ -9,7 +9,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/${{ name }}-${{ version }}.tar.gz
-  sha256: f332ee4e80cd6f78734bc9879b07b517c91121a88ab8f68ccd03fde31049fc62
+  sha256: 760920161854d6c2b85ae356ff37a26acbea15972c7f53d3935456802adbae3d
 
 build:
   noarch: python
