@@ -1,7 +1,6 @@
 context:
   name: rhealpixdggs
   version: "0.7.1"
-  python_min: "3.11"
 
 package:
   name: ${{ name|lower }}
@@ -35,6 +34,9 @@ tests:
       imports:
         - rhealpixdggs
       pip_check: true
+      python_version:
+        - ${{ python_min }}.*
+        - "*"
   - script:
       - python -m unittest discover tests/
       - pytest -v --doctest-glob=introduction.rst docs/source/
