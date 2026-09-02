@@ -1,7 +1,7 @@
 context:
   name: rhealpixdggs
-  version: "0.7.0"
-  python_min: 3.12
+  version: "0.7.1"
+  python_min: "3.11"
 
 package:
   name: ${{ name|lower }}
@@ -9,7 +9,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/${{ name }}-${{ version }}.tar.gz
-  sha256: c37919696e7e3cde3540d4240f98c7b8a14562404751fa97aba7e22222fe8754
+  sha256: 0c4282ca0598c823563ae1fd0d8f379a55df941af007203b747c09e10e9a10cf
 
 build:
   noarch: python
@@ -20,14 +20,13 @@ build:
 requirements:
   host:
     - python ==${{ python_min }}
-    - poetry-core >=1.0.0
+    - poetry-core >=2.0,<3.0
     - wheel
     - pip
   run:
-    - python ${{ python_min }}.*
+    - python >=${{ python_min }}
     - numpy >=2.0
     - scipy >=1.11
-    - matplotlib-base >=3.7
     - pyproj >=3.6
     - shapely >=2.1
 
@@ -54,8 +53,11 @@ about:
   homepage: "https://github.com/manaakiwhenua/rhealpixdggs-py"
   repository: "https://github.com/manaakiwhenua/rhealpixdggs-py"
   summary: An implementation of the rHEALPix discrete global grid system
-  license: GPL-3.0-or-later
-  license_file: LICENSE
+  license: LGPL-3.0-or-later OR MIT
+  license_file:
+    - LICENSE
+    - LICENSE-LGPL
+    - LICENSE-MIT
 
 extra:
   recipe-maintainers:
