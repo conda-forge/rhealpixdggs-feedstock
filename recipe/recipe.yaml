@@ -1,7 +1,6 @@
 context:
   name: rhealpixdggs
-  version: 0.5.13
-  python_min: 3.12
+  version: "0.7.1"
 
 package:
   name: ${{ name|lower }}
@@ -9,25 +8,24 @@ package:
 
 source:
   url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/${{ name }}-${{ version }}.tar.gz
-  sha256: 760920161854d6c2b85ae356ff37a26acbea15972c7f53d3935456802adbae3d
+  sha256: 0c4282ca0598c823563ae1fd0d8f379a55df941af007203b747c09e10e9a10cf
 
 build:
   noarch: python
-  script: 
-   - python -m pip install . --no-deps -vv
+  script:
+    - python -m pip install . --no-deps -vv
   number: 0
 
 requirements:
   host:
     - python ==${{ python_min }}
-    - poetry-core >=1.0.0
+    - poetry-core >=2.0,<3.0
     - wheel
     - pip
   run:
-    - python ${{ python_min }}.*
+    - python >=${{ python_min }}
     - numpy >=2.0
     - scipy >=1.11
-    - matplotlib-base >=3.7
     - pyproj >=3.6
     - shapely >=2.1
 
@@ -36,12 +34,15 @@ tests:
       imports:
         - rhealpixdggs
       pip_check: true
+      python_version:
+        - ${{ python_min }}.*
+        - "*"
   - script:
       - python -m unittest discover tests/
       - pytest -v --doctest-glob=introduction.rst docs/source/
       - pytest -v --doctest-modules rhealpixdggs -k "not rhealpixdggs.projection_wrapper.Projection"
     requirements:
-      run: 
+      run:
         - pytest
         - python ==${{ python_min }}
     files:
@@ -54,8 +55,11 @@ about:
   homepage: "https://github.com/manaakiwhenua/rhealpixdggs-py"
   repository: "https://github.com/manaakiwhenua/rhealpixdggs-py"
   summary: An implementation of the rHEALPix discrete global grid system
-  license: GPL-3.0-or-later
-  license_file: LICENSE
+  license: LGPL-3.0-or-later OR MIT
+  license_file:
+    - LICENSE
+    - LICENSE-LGPL
+    - LICENSE-MIT
 
 extra:
   recipe-maintainers:
