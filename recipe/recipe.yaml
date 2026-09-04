@@ -1,6 +1,6 @@
 context:
   name: rhealpixdggs
-  version: "0.7.1"
+  version: "0.8.1"
 
 package:
   name: ${{ name|lower }}
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/${{ name }}-${{ version }}.tar.gz
-  sha256: 0c4282ca0598c823563ae1fd0d8f379a55df941af007203b747c09e10e9a10cf
+  sha256: ec8009d53e279f7a8357f17d3ab02c10af309d67d5a8cf15ac91ce4ed5f7b668
 
 build:
   noarch: python
