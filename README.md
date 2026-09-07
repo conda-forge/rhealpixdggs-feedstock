@@ -5,7 +5,7 @@ Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/rhealpixdggs-fe
 
 Home: https://github.com/manaakiwhenua/rhealpixdggs-py
 
-Package license: GPL-3.0-or-later
+Package license: LGPL-3.0-or-later OR MIT
 
 Summary: An implementation of the rHEALPix discrete global grid system
 
