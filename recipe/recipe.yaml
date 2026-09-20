@@ -45,6 +45,8 @@ tests:
       run:
         - pytest
         - python ==${{ python_min }}
+        # optional "harmonics" extra; needed so --doctest-modules can import rhealpixdggs.harmonics
+        - ducc0 >=0.41
     files:
       source:
         - tests/
