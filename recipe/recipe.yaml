@@ -1,6 +1,6 @@
 context:
   name: rhealpixdggs
-  version: "0.8.5"
+  version: "0.8.6"
 
 package:
   name: ${{ name|lower }}
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/${{ name }}-${{ version }}.tar.gz
-  sha256: e2cafc0993080013a21cdc4bfb4095983df40a241db2739aa4e6bfaa4d27f162
+  sha256: 7455769b4749676bbe8a985725afe9822f71c2d9ec4c8446e5bc799e60b435a9
 
 build:
   noarch: python
@@ -45,6 +45,8 @@ tests:
       run:
         - pytest
         - python ==${{ python_min }}
+        # optional "harmonics" extra; needed so --doctest-modules can import rhealpixdggs.harmonics
+        - ducc0 >=0.41
     files:
       source:
         - tests/
